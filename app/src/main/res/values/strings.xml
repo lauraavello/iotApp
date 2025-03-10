@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ballotApp</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_juana_is_agenius">JuanaIsAGenius</string>
+</resources>

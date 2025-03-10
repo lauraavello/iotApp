@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_menu"
+        android:title="Home"
+        android:src="@drawable/home"/>
+
+    <item
+        android:id="@+id/box_menu"
+        android:title="Ballot Box"/>
+    <item
+        android:id="@+id/add_menu"
+        android:title=""
+        android:enabled="false"/>
+
+    <item
+        android:id="@+id/stats_menu"
+        android:title="Voting Stats"/>
+    <item
+        android:id="@+id/comments_menu"
+        android:title="Messages"/>
+
+
+</menu>
