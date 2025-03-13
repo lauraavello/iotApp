@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginTop="10dp"
+    app:cardElevation="10dp"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Ballot Name (First TextView) -->
+        <TextView
+            android:id="@+id/ballotName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ballot Box Name"
+            android:textColor="@color/lavender"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="2dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Ballot Image -->
+            <ImageView
+                android:id="@+id/ballot_img"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:adjustViewBounds="false"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                android:src="@drawable/ballot_box" />
+
+            <!-- Ballot Status -->
+            <TextView
+                android:id="@+id/infoStatus"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/ballot_img"
+                android:text="Status:"
+                android:textColor="@color/lavender"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Supervisor -->
+            <TextView
+                android:id="@+id/infoSupervisor"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoStatus"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/ballot_img"
+                android:text="Supervisor:"
+                android:textColor="@color/lavender"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Votes -->
+            <TextView
+                android:id="@+id/infoVotes"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoSupervisor"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/ballot_img"
+                android:text="Votes:"
+                android:textColor="@color/lavender"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Remarks -->
+            <TextView
+                android:id="@+id/infoRemarks"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/infoVotes"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="7dp"
+                android:layout_toEndOf="@+id/ballot_img"
+                android:text="No. Remarks:"
+                android:textColor="@color/lavender"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

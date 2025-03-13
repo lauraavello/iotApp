@@ -39,8 +39,8 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
         contentValues.put("usernameCreate", usernameCreate);
         contentValues.put("emailCreate", emailCreate);
         contentValues.put("passwordCreate", passwordCreate);
-        contentValues.put("dateCreate", dateCreate);
-        contentValues.put("postalCodeCreate", postalCodeCreate);
+        contentValues.put("birthdateCreate", dateCreate);
+        contentValues.put("countryCreate", postalCodeCreate);
         long result = db.insert("Userdetails",null,contentValues);
         if(result==-1){
             return false;
