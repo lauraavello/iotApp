@@ -20,12 +20,10 @@ public class AddFragment extends Fragment {
 
         // Find buttons
         Button btnAddRemark = view.findViewById(R.id.btn_add_remark);
-        Button btnAddAdmin = view.findViewById(R.id.btn_add_admin);
         Button btnAddBox = view.findViewById(R.id.btn_add_box);
 
         // Handle clicks to navigate to different fragments
         btnAddRemark.setOnClickListener(v -> navigateTo(new AddRemarkFragment()));
-        btnAddAdmin.setOnClickListener(v -> navigateTo(new AddAdminFragment()));
         btnAddBox.setOnClickListener(v -> navigateTo(new AddBoxFragment()));
 
         return view;

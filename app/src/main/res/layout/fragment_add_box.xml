@@ -8,34 +8,51 @@
     android:gravity="center"
     android:background="@android:color/white">
 
-    <!-- Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What do you want to add?"
+        android:text="Add a Ballot Box"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/lavender"
         android:layout_marginBottom="24dp"/>
 
-    <!-- Button: Add Remark/Comment -->
+
     <Button
-        android:id="@+id/btn_add_remark"
+        android:id="@+id/btn_scan_qr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add a Remark / Comment"
+        android:text="With QR Code"
         android:backgroundTint="@color/purple_500"
         android:textColor="@android:color/white"
         android:layout_marginBottom="12dp"/>
 
+    <!-- OR Divider -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="12dp"/>
 
+
+    <EditText
+        android:id="@+id/edit_box_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Box ID Manually"
+        android:background="@android:drawable/editbox_background"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp"/>
 
     <!-- Button: Add Box -->
     <Button
         android:id="@+id/btn_add_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add a Box"
+        android:text="Add Box"
         android:backgroundTint="@color/purple_500"
         android:textColor="@android:color/white"/>
 
