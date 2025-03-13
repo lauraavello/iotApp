@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ballotApp</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_juana_is_agenius">JuanaIsAGenius</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
 </resources>

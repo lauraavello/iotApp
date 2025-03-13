@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_accountSett"
-        android:title="Manage Account"/>
+        android:id="@+id/admin_settings"
+        android:title="Admin Settings"/>
 
     <item
-        android:id="@+id/nav_ownRecipes"
-        android:title="Your Recipes"/>
+        android:id="@+id/profile_pic_settings"
+        android:title="Change Profile Picture"/>
     <item
-        android:id="@+id/timer"
-        android:title="Timer" />
+        android:id="@+id/password_settings"
+        android:title="Change Password" />
 
     <item
         android:id="@+id/nav_logOutSett"

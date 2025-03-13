@@ -2,5 +2,5 @@ package be.kuleuven.gt.ballotapp;
 
 import androidx.fragment.app.Fragment;
 
-public class BoxFragment extends Fragment {
+public class CommentsFragment extends Fragment {
 }

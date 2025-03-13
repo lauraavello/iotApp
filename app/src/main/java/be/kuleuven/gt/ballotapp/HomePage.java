@@ -1,30 +1,25 @@
 package be.kuleuven.gt.ballotapp;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.view.GravityCompat;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-
 import be.kuleuven.gt.ballotapp.databinding.ActivityHomepageBinding;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
@@ -37,6 +32,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     ActivityHomepageBinding binding;
     String userName;
     Bundle bundle;
+    ImageView profileIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +44,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomAppBar = findViewById(R.id.bottomAppBar);
         drawerLayout = findViewById(R.id.drawer_layout);
-        //NavigationView navigationView = findViewById(R.id.nav_view);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        profileIcon = findViewById(R.id.profile_icon); // ✅ Reference profile icon
         addMenu = findViewById(R.id.add_menu);
 
         Intent intent = getIntent();
@@ -58,18 +54,28 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             userName = intent.getStringExtra("userName");
         }
 
+        // ✅ Set up profile icon click to open RIGHT-SIDE drawer
+        profileIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.END));
 
 
-        // Set up the toolbar
-        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, R.string.open_nav, R.string.close_nav) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
 
-        // Set up ActionBarDrawerToggle
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         bundle = new Bundle();
-        bundle.putString("userName" , userName);
+        bundle.putString("userName", userName);
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -77,20 +83,19 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_home, new HomeFragment()).commit();
         }
 
-        // Set up the bottom navigation view
-        bottomNavigationView.setBackground(null);
+        // Set up bottom navigation
         bottomNavigationView.setBackground(null);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            Fragment frag = new Fragment();
+            Fragment frag;
             if (item.getItemId() == R.id.home_menu) {
                 frag = new HomeFragment();
             } else if (item.getItemId() == R.id.box_menu) {
                 frag = new BoxFragment();
             } else if (item.getItemId() == R.id.stats_menu) {
                 frag = new VotingStatsFragment();
-            } else if(item.getItemId() == R.id.comments_menu){
+            } else if (item.getItemId() == R.id.comments_menu) {
                 frag = new CommentsFragment();
-            }else {
+            } else {
                 return true;
             }
             frag.setArguments(bundle);
@@ -98,44 +103,42 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             return true;
         });
 
-        // Set up the add menu button
+        // Set up add menu button
         addMenu.setOnClickListener(v -> {
             Fragment f = new AddFragment();
             f.setArguments(getUserBundle());
             replaceFragment(f);
         });
-
     }
 
-    // Navigation (to be done)
-
-    /*@Override
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Fragment f = new Fragment();
+        Fragment f;
         int itemId = item.getItemId();
-        if (itemId == R.id.nav_accountSett) {
-            f = new AccountSettingsFragment();
+        if (itemId == R.id.admin_settings) {
+            f = new AdminSettingsFragment();
         } else if (itemId == R.id.nav_logOutSett) {
             startActivity(new Intent(this, LoginPage.class));
-        } else if (itemId == R.id.nav_changePassword) {
-            f = new changePasswordFragment();
-        }  else if (itemId == R.id.nav_photo){
-            f = new changePhotoFragment();
+            drawerLayout.closeDrawer(GravityCompat.END);
+            return true;
+        } else if (itemId == R.id.password_settings) {
+            f = new ChangePasswordFragment();
+        } else if (itemId == R.id.profile_pic_settings) {
+            f = new ChangePhotoFragment();
         } else {
             return true;
         }
         f.setArguments(getUserBundle());
         replaceFragment(f);
-        drawerLayout.closeDrawer(GravityCompat.START);
+        drawerLayout.closeDrawer(GravityCompat.END);
         return true;
-    }*/
+    }
 
     private Bundle getUserBundle() {
         Bundle bundle = new Bundle();
         bundle.putString("userName", userName);
         return bundle;
     }
-
 
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();

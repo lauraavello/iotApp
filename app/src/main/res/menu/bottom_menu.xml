@@ -8,18 +8,21 @@
 
     <item
         android:id="@+id/box_menu"
-        android:title="Ballot Box"/>
+        android:title="Ballot Box"
+        android:src="@drawable/box"/>
     <item
         android:id="@+id/add_menu"
         android:title=""
-        android:enabled="false"/>
+        android:enabled="false" />
 
     <item
         android:id="@+id/stats_menu"
-        android:title="Voting Stats"/>
+        android:title="Voting Stats"
+        android:src="@drawable/stats"/>
     <item
         android:id="@+id/comments_menu"
-        android:title="Messages"/>
+        android:title="Messages"
+        android:src="@drawable/comment"/>
 
 
 </menu>

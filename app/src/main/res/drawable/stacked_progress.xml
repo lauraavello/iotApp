@@ -1,0 +1,26 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background (grey for people who haven't voted) -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#CCCCCC"/>
+        </shape>
+    </item>
+
+    <!-- Party 1 (Blue) -->
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#007AFF"/>  <!-- Blue -->
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Party 2 (Red) -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#FF3B30"/>  <!-- Red -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>
