@@ -19,7 +19,15 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape android:shape="rectangle">
-                <solid android:color="#FF3B30"/>  <!-- Red -->
+                <solid android:color="#FF4081"/>  <!-- Red -->
+            </shape>
+        </clip>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#FBE730"/>  <!-- Red -->
             </shape>
         </clip>
     </item>

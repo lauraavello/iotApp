@@ -11,7 +11,7 @@
         android:title="Ballot Box"
         android:src="@drawable/box"/>
     <item
-        android:id="@+id/add_menu"
+        android:id="@+id/add_men"
         android:title=""
         android:enabled="false" />
 

@@ -28,6 +28,7 @@ public class HomeFragment extends Fragment {
         int totalVoters = 1000;
         int party1Votes = 400;   // Blue
         int party2Votes = 300;   // Red
+        int party3Votes = 100; // Yellow
         int voted = party1Votes + party2Votes;
         int notVoted = totalVoters - voted; // Grey part
 

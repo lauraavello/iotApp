@@ -2,6 +2,7 @@ package be.kuleuven.gt.ballotapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,7 +46,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         bottomAppBar = findViewById(R.id.bottomAppBar);
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        profileIcon = findViewById(R.id.profile_icon); // ✅ Reference profile icon
+        View headerView = navigationView.getHeaderView(0);
+        profileIcon = findViewById(R.id.profile_icon); //
         addMenu = findViewById(R.id.add_menu);
 
         Intent intent = getIntent();
@@ -54,8 +56,12 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             userName = intent.getStringExtra("userName");
         }
 
-        // ✅ Set up profile icon click to open RIGHT-SIDE drawer
-        profileIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.END));
+
+        if (profileIcon != null) {
+            profileIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.END));
+        } else {
+            Log.e("HomePage", "profile_icon is NULL in nav_header.xml!");
+        }
 
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
